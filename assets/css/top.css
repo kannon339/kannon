@@ -1,0 +1,404 @@
+@charset "utf-8";
+
+/* =====================キービジュアルここから===================== */
+.key-visual{
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.key-visual video{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.key-visual h2{
+    position: relative;
+    z-index: 10;
+    width: 300px;
+    animation: logoAppear 1.5s ease-out forwards;
+}
+@keyframes logoAppear {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(-40px);
+    }
+    60% {
+        transform: scale(1.05) translateY(5px);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+.key-visual h2 img{
+    max-width: 160%;
+    filter: drop-shadow(0 6px 25px rgba(107, 87, 68, 0.5));
+    margin-left: -131px;
+}
+.key-visual .scroll{
+    position: absolute;
+    left: 5.2%;
+    bottom: 80px;
+    color: #fff;
+    transform: rotate(90deg);
+    font-size: 1.2rem;
+    letter-spacing: 0.15em;
+    z-index: 10;
+    font-weight: 500;
+}
+.key-visual .scroll::after{
+    content: "";
+    display: block;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, #fff, transparent);
+    position: absolute;
+    left: 120%;
+    top: 50%;
+    transform-origin: left;
+    animation: scroll 1.5s ease-in infinite;
+}
+@keyframes scroll{
+    0%{transform: scaleX(0); opacity: 1;}
+    90%{transform: scaleX(1); opacity: 1;}
+    100%{transform: scaleX(1); opacity: 0;}
+}
+/* =====================キービジュアルここまで===================== */
+
+/* =====================カーソルエフェクト（足跡のみ）===================== */
+.cursor-paw {
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    font-size: 2rem;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+@keyframes pawFade {
+    0% { opacity: 0.8; transform: scale(1) rotate(0deg); }
+    100% { opacity: 0; transform: scale(0.5) rotate(20deg); }
+}
+/* =====================カーソルエフェクトここまで===================== */
+
+/* =====================スライダーここから===================== */
+.slider{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 100px 0 120px;
+    background: linear-gradient(180deg, rgb(235, 227, 216) 0%, rgb(224, 213, 199) 100%);
+}
+.slick01 li {
+    position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    margin: 0 15px;
+    box-shadow: 0 8px 30px rgba(107, 87, 68, 0.2);
+}
+.slick01 li img {
+    width: 100%;
+    height: 520px;
+    object-fit: cover;
+    filter: brightness(0.92) contrast(1.08) saturate(0.95);
+    transform: scale(1.08);
+    transition: transform 2.5s ease, filter 1.2s ease;
+}
+.slick01 li.slick-active img {
+    transform: scale(1);
+    filter: brightness(1) contrast(1) saturate(1);
+}
+.slide-caption {
+    position: absolute;
+    bottom: 10%;
+    left: 7%;
+    color: #fff;
+    z-index: 10;
+    max-width: 520px;
+    opacity: 0;
+    transform: translateY(35px);
+    transition: all 1.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    background: linear-gradient(135deg, rgba(107, 87, 68, 0.85), rgba(90, 64, 50, 0.75));
+    padding: 28px 35px;
+    border-radius: 10px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.slick-active .slide-caption {
+    opacity: 1;
+    transform: translateY(0);
+}
+.slide-caption h3 {
+    font-size: 2.6rem;
+    font-weight: 500;
+    margin-bottom: 0.6em;
+    letter-spacing: 0.1em;
+}
+.slide-caption p {
+    font-size: 1.55rem;
+    font-weight: 300;
+    line-height: 1.9;
+}
+.slick01 li::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 55%;
+    background: linear-gradient(to top, rgba(90, 64, 50, 0.6), rgba(90, 64, 50, 0));
+    pointer-events: none;
+}
+.slick-dots {
+    bottom: 28px;
+}
+.slick-dots li button:before {
+    font-size: 12px;
+    color: #fff;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+}
+.slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #fff;
+    transform: scale(1.5);
+}
+/* =====================スライダーここまで===================== */
+
+/* =====================メインコンテンツここから===================== */
+.main-cont{
+    padding: 120px 0;
+    background: linear-gradient(180deg, #fdfcfa 0%, #f5f0ea 100%);
+}
+.main-cont-item{
+    display: flex;
+    align-items: flex-start;
+    padding-top: 80px;
+}
+.main-cont-item:first-child{
+    padding-top: 0;
+}
+.main-cont-item:nth-child(2){
+    flex-direction: row-reverse;
+}
+.main-cont-text{
+    width: 50%;
+}
+.main-cont-item:nth-child(1) .main-cont-text{
+    padding-right: 5%;
+}
+.main-cont-item:nth-child(2) .main-cont-text{
+    padding-left: 5%;
+}
+.main-cont-item img{
+    width: 50%;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(107, 87, 68, 0.15);
+}
+.main-cont-video{
+    width: 50%;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(107, 87, 68, 0.15);
+}
+.main-cont-video video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+/* =====================メインコンテンツここまで===================== */
+
+/* =====================作品リストここから===================== */
+.shop-list{
+    padding: 120px 0;
+    background: linear-gradient(135deg, #ebe3d8 0%, #e0d5c7 100%);
+}
+.works-intro{
+    max-width: 820px;
+    margin: 0 auto 75px;
+    text-align: center;
+    font-size: 1.7rem;
+    line-height: 2.3;
+    color: #5a4032;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 35px 50px;
+    border-radius: 12px;
+}
+.works-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 55px;
+}
+.shop-list-item {
+    background: linear-gradient(180deg, #fdfcfa 0%, #f9f6f2 100%);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(107, 87, 68, 0.15);
+    transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    border: 1px solid rgba(196, 181, 160, 0.3);
+}
+.shop-list-item:hover {
+    transform: translateY(-15px) scale(1.03);
+    box-shadow: 0 18px 45px rgba(107, 87, 68, 0.25);
+}
+.work-image {
+    width: 100%;
+    height: 340px;
+    background: linear-gradient(135deg, #e4dace 0%, #c4b5a0 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8b6f47;
+    font-size: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+.work-placeholder{
+    position: relative;
+    z-index: 2;
+}
+.work-image::before {
+    content: '';
+    position: absolute;
+    font-size: 9rem;
+    opacity: 0.12;
+}
+.work-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+.shop-list-item:hover .work-image img {
+    transform: scale(1.18);
+}
+.shop-list-item-text {
+    padding: 38px 32px;
+}
+.shop-list-item-text h3 {
+    font-size: 2.1rem;
+    margin-bottom: 16px;
+    font-weight: 500;
+    color: #6b5744;
+    position: relative;
+    padding-left: 18px;
+}
+.shop-list-item-text h3::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    height: 85%;
+    background: linear-gradient(to bottom, #9d8672, #c4b5a0);
+    border-radius: 3px;
+}
+.work-desc {
+    font-size: 1.55rem;
+    color: #7a6856;
+    line-height: 2;
+}
+/* =====================作品リストここまで===================== */
+
+/* =====================オーダーここから===================== */
+.news{
+    padding: 120px 0;
+    background: linear-gradient(135deg, #f5f0ea 0%, #ebe3d8 100%);
+}
+.order-intro{
+    max-width: 820px;
+    text-align: center;
+    font-size: 1.7rem;
+    line-height: 2.5;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(253, 249, 244, 0.7));
+    padding: 55px 65px;
+    border-radius: 16px;
+    box-shadow: 0 10px 35px rgba(107, 87, 68, 0.12);
+    border: 1px solid rgba(196, 181, 160, 0.3);
+}
+/* =====================オーダーここまで===================== */
+
+
+/* ブレイクポイント768px（タブレット用） */
+@media ( max-width:768px ){
+    .main-cont{
+        padding-bottom: 100px;
+    }
+    .main-cont-item,
+    .main-cont-item:nth-child(2){
+        flex-direction: column;
+    }
+    .main-cont-text{
+        width: 85%;
+        margin: 0 auto 40px;
+    }
+    .main-cont-item:nth-child(1) .main-cont-text,
+    .main-cont-item:nth-child(2) .main-cont-text{
+        padding: 0;
+    }
+    .main-cont-text h2{
+        text-align: center;
+    }
+    .main-cont-item img{
+        width: 100%;
+    }
+    .works-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+@media ( max-width: 520px ){
+    .key-visual{
+        height: 100vh;
+    }
+    .key-visual video{
+        width: auto;
+        height: 100vh;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .key-visual h2{
+        width: 220px;
+    }
+    .key-visual h2 img {
+        max-width: 160%;
+        filter: drop-shadow(0 6px 25px rgba(107, 87, 68, 0.5));
+        margin-left: -76px;
+    }
+    .scroll{
+        bottom: 65px;
+        font-size: 1.1rem;
+    }
+    .slider{
+        padding: 80px 0 95px;
+    }
+    .slick01 li{
+        margin: 0 10px;
+    }
+    .slick01 li img{
+        height: 380px;
+    }
+    .main-cont, .shop-list, .news{
+        padding: 100px 0;
+    }
+    .order-intro{
+        padding: 42px 32px;
+    }
+}
+
+[data-aos][data-aos][data-aos-delay="200"].aos-animate, body[data-aos-delay="200"] [data-aos].aos-animate {
+    transition-delay: .2s;
+    margin-left: 26px;}
+
+    [data-aos^=fade][data-aos^=fade].aos-animate {
+    opacity: 1;
+    transform: translateZ(0);
+    margin-left: 28px;
+}
