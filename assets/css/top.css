@@ -16,7 +16,13 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+
+    /* iPhone Safari対策 */
+    filter: brightness(0.9) contrast(0.95);
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
+
 .key-visual h2{
     position: relative;
     z-index: 10;
