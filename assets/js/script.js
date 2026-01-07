@@ -92,3 +92,21 @@ $(document).on('mousemove', function(e) {
         }
     }
 });
+
+
+// script.jsに追記（既存のスムーススクロールの後に追加）
+
+// ネーム刺繍案内ボタンのスムーススクロール
+$('.name-service-btn').on('click', function(e) {
+    e.preventDefault();
+    const target = $(this.attr('href'));
+    
+    if (target.length) {
+        const headerHeight = 80;
+        const targetPosition = target.offset().top - headerHeight;
+        
+        $('html, body').animate({
+            scrollTop: targetPosition
+        }, 800, 'swing');
+    }
+});
